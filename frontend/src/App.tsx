@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <h1>Contact Management App</h1>
+      <p>using using .NET 6 WebAPI and ReactTS</p>
       <ContactList contacts={contacts} />
       <ContactForm />
 

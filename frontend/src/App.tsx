@@ -20,8 +20,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Contact Management Application</h1>
-      <ContactForm handleAddContact={addContactHandler}/>
+      <h1>Contact Management</h1>
+      <p>using using .NET 6 WebAPI and ReactTS</p>
+
+      <ContactForm handleAddContact={addContactHandler} />
       <ContactList contacts={contacts} handleSetContacts={setContactsHandler} />
 
       <p>© chan, tim, mac</p>

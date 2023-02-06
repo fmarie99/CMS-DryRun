@@ -1,18 +1,26 @@
 import { useState } from "react";
+import { Contact } from "../interfaces/Contact";
+import { createContact } from "../services/Api";
 
-export default function ContactForm() {
+interface Props {
+  handleAddContact: (contact: Contact) => void;
+}
+
+export default function ContactForm({ handleAddContact }: Props) {
   // create a state variable for the form inputs
   const [contact, setContact] = useState({
-    firstname: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
     physicalAddress: "",
     deliveryAddress: "",
   });
 
   // create a function to handle the form submission
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(contact);
+    const createdContact = await createContact(contact);
+    handleAddContact(createdContact);
   };
 
   // create a function to handle the form input changes
@@ -28,21 +36,21 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="firstname">First Name</label>
+      <label htmlFor="firstName">First Name</label>
       <input
         type="text"
-        id="firstname"
-        name="firstname"
-        value={contact.firstname}
+        id="firstName"
+        name="firstName"
+        value={contact.firstName}
         onChange={handleChange}
       />
 
-      <label htmlFor="lastname">Last Name</label>
+      <label htmlFor="lastName">Last Name</label>
       <input
         type="text"
-        id="lastname"
-        name="lastname"
-        value={contact.lastname}
+        id="lastName"
+        name="lastName"
+        value={contact.lastName}
         onChange={handleChange}
       />
 

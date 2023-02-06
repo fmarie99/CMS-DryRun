@@ -9,8 +9,11 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Contact Management App</h1>
       <ContactList contacts={contacts} />
       <ContactForm />
+
+      <p>© chan, tim, mac</p>
     </div>
   );
 }

@@ -5,7 +5,7 @@ namespace API.Data
 {
     public class JsonFileRepository
     {
-        public List<Contact> Contacts{ get; set; }
+        public List<Contact> Contacts { get; set; }
 
         // create a repository that reads content inside a contacts.json and stores it on Contacts property
         public JsonFileRepository()
@@ -32,8 +32,6 @@ namespace API.Data
         public void AddContact(Contact contact)
         {
             Contacts.Add(contact);
-            
-            SaveChanges();
         }
 
         // create a method to update a contact
@@ -41,8 +39,6 @@ namespace API.Data
         {
             var index = Contacts.FindIndex(c => c.Id == contact.Id);
             Contacts[index] = contact;
-
-            SaveChanges();
         }
 
         // create a method to delete a contact
@@ -50,8 +46,6 @@ namespace API.Data
         {
             var index = Contacts.FindIndex(c => c.Id == id);
             Contacts.RemoveAt(index);
-
-            SaveChanges();
         }
 
         // create a method to save changes
